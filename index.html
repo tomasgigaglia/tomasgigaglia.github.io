@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tomas Gigaglia | Mechanical Drafter &amp; 3D CAD Designer</title>
+<meta name="description" content="Mechanical drafter and 3D CAD designer in Brisbane, QLD. Reverse engineering, 3D scanning, fabrication drawings and prototypes for 3D printing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F7F5;
+    --ink:#1B2330;
+    --steel:#5B6674;
+    --line:#B4BCC5;
+    --hair:#DDE1E5;
+    --layout:#2446C7;
+    --gutter:clamp(16px,4vw,48px);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:1.0625rem;line-height:1.55;font-variation-settings:"wdth" 100}
+  a{color:var(--layout)}
+  a:focus-visible{outline:2px solid var(--layout);outline-offset:3px}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 var(--gutter)}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  /* ---------- Hero: a drawing sheet ---------- */
+  .sheet{position:relative;margin:calc(var(--gutter) + 14px);padding:clamp(24px,5vw,64px);min-height:min(88vh,780px);display:grid;grid-template-rows:auto 1fr auto;gap:40px}
+  .sheet::before{content:"";position:absolute;inset:-14px;border:1px solid var(--line);pointer-events:none}
+  .frame{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+  .frame rect{fill:none;stroke:var(--ink);stroke-width:1.5}
+  .zones-x,.zones-y{position:absolute;color:var(--steel);font-size:10px;line-height:1;display:grid}
+  .zones-x{left:0;right:0;top:-14px;height:14px;grid-template-columns:repeat(6,1fr)}
+  .zones-y{top:0;bottom:0;left:-14px;width:14px;grid-template-rows:repeat(4,1fr)}
+  .zones-x span,.zones-y span{display:grid;place-items:center}
+  .zones-x span+span{border-left:1px solid var(--line)}
+  .zones-y span+span{border-top:1px solid var(--line)}
+
+  .topnav{justify-self:end;display:flex;flex-wrap:wrap;gap:6px 22px;font-size:.9375rem}
+  .topnav a{color:var(--ink);text-decoration:none}
+  .topnav a:hover{text-decoration:underline;text-underline-offset:4px}
+
+  .hero-main{align-self:center}
+  .dimensioned{display:inline-block;position:relative;padding-bottom:6px}
+  .dimensioned::before,.dimensioned::after{content:"";position:absolute;bottom:0;width:1px;height:28px;background:var(--layout)}
+  .dimensioned::before{left:0}
+  .dimensioned::after{right:0}
+  h1{margin:0;font-size:clamp(3.25rem,12vw,9rem);line-height:.88;font-weight:800;font-variation-settings:"wdth" 125;letter-spacing:-.025em}
+  .dim{position:relative;margin-top:22px;height:1px;background:var(--layout);transform-origin:center}
+  .dim::before,.dim::after{content:"";position:absolute;top:-4px;border-top:4px solid transparent;border-bottom:4px solid transparent}
+  .dim::before{left:0;border-right:10px solid var(--layout)}
+  .dim::after{right:0;border-left:10px solid var(--layout)}
+  .dim span{position:absolute;left:50%;top:50%;transform:translate(-50%,-55%);background:var(--paper);padding:0 10px;font-size:.875rem;color:var(--layout);white-space:nowrap}
+  .lede{max-width:34ch;margin:36px 0 0;font-size:clamp(1.125rem,2vw,1.375rem);line-height:1.45}
+
+  .tb{justify-self:end;width:min(100%,480px);border-collapse:collapse;border:1.5px solid var(--ink);background:var(--paper);font-size:.9375rem}
+  .tb th,.tb td{border:1px solid var(--line);padding:7px 12px;text-align:left;vertical-align:top}
+  .tb th{width:9.5em;font-weight:500;font-size:.8125rem;color:var(--steel)}
+  .tb td{font-weight:500}
+  .tb a{text-decoration:none}
+  .tb a:hover{text-decoration:underline}
+  .tb .num{font-variant-numeric:tabular-nums}
+
+  @media (prefers-reduced-motion:no-preference){
+    .frame rect{animation:draw 1.2s cubic-bezier(.65,0,.25,1) backwards}
+    .dim{animation:measure .55s .95s ease-out backwards}
+  }
+  @keyframes draw{from{stroke-dasharray:1;stroke-dashoffset:1}to{stroke-dasharray:1;stroke-dashoffset:0}}
+  @keyframes measure{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+  @media (max-width:640px){
+    .sheet{margin:calc(var(--gutter) + 6px);min-height:auto;gap:32px}
+    .sheet::before{inset:-6px}
+    .zones-x,.zones-y{display:none}
+    .topnav{justify-self:start}
+    .tb{justify-self:stretch}
+    .tb th{width:7.5em}
+  }
+
+  /* ---------- Sections ---------- */
+  section{padding:clamp(56px,9vw,112px) 0;border-top:1px solid var(--hair)}
+  h2{margin:0 0 .35em;font-size:clamp(1.75rem,3.6vw,2.5rem);line-height:1.1;font-weight:700;font-variation-settings:"wdth" 112;letter-spacing:-.01em}
+  .intro{max-width:60ch;margin:0 0 44px;color:var(--steel)}
+
+  /* Work */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:48px 32px}
+  .project{margin:0}
+  .shot{aspect-ratio:4/3;border:1px solid var(--line);background:#fff;overflow:hidden}
+  .shot img{width:100%;height:100%;object-fit:cover}
+  .shot.empty{display:grid;place-items:center;background-color:#fff;background-image:linear-gradient(var(--hair) 1px,transparent 1px),linear-gradient(90deg,var(--hair) 1px,transparent 1px);background-size:24px 24px}
+  .shot.empty img{display:none}
+  .shot.empty::after{content:attr(data-file);font-size:.8125rem;color:var(--steel);background:var(--paper);padding:4px 10px;border:1px solid var(--line)}
+  .project h3{margin:18px 0 4px;font-size:1.125rem;font-weight:650;line-height:1.3}
+  .project p{margin:0;font-size:.9688rem;max-width:44ch}
+  .project .ctx{margin-top:8px;font-size:.875rem;color:var(--steel)}
+
+  /* Experience */
+  .jobs{list-style:none;margin:0;padding:0;max-width:880px}
+  .jobs li{display:grid;grid-template-columns:150px 1fr;gap:4px 32px;padding:22px 0;border-bottom:1px solid var(--hair)}
+  .jobs li:first-child{border-top:1px solid var(--hair)}
+  .when{color:var(--steel);font-variant-numeric:tabular-nums;font-size:.9375rem;padding-top:2px}
+  .role{margin:0;font-weight:650;font-size:1.0625rem}
+  .where{margin:0;color:var(--steel);font-size:.9375rem}
+  .what{margin:6px 0 0;max-width:60ch}
+  @media (max-width:640px){.jobs li{grid-template-columns:1fr}}
+
+  /* Skills */
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:40px 64px}
+  .cols h3{margin:0 0 14px;font-size:1.125rem;font-weight:650}
+  dl{margin:0}
+  dt{font-weight:600;margin-top:14px}
+  dt:first-child{margin-top:0}
+  dd{margin:2px 0 0;color:var(--ink)}
+  .plain{list-style:none;margin:0;padding:0}
+  .plain li{padding:9px 0;border-bottom:1px solid var(--hair)}
+  .plain li:first-child{padding-top:0}
+  .muted{color:var(--steel)}
+
+  /* Contact */
+  .contact p{max-width:46ch;font-size:clamp(1.125rem,2vw,1.375rem);line-height:1.45;margin:0 0 28px}
+  .btn{display:inline-block;background:var(--layout);color:#fff;text-decoration:none;font-weight:600;padding:14px 24px;border-radius:2px}
+  .btn:hover{background:#1A37A8}
+  .email{display:block;margin-top:14px;color:var(--steel);font-size:.9375rem}
+
+  footer{border-top:1px solid var(--hair);padding:28px 0 40px;color:var(--steel);font-size:.875rem}
+</style>
+</head>
+<body>
+
+<header class="sheet" id="top">
+  <svg class="frame" aria-hidden="true"><rect x="0" y="0" width="100%" height="100%" pathLength="1"/></svg>
+  <div class="zones-x" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div>
+  <div class="zones-y" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span></div>
+
+  <nav class="topnav" aria-label="Sections">
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="hero-main">
+    <div class="dimensioned">
+      <h1>Tomas<br>Gigaglia</h1>
+      <div class="dim"><span>5+ years of design work</span></div>
+    </div>
+    <p class="lede">Mechanical drafter and 3D CAD designer. I turn worn parts, sketches and 3D scans into accurate models and drawings, ready to fabricate or print.</p>
+  </div>
+
+  <table class="tb">
+    <caption class="sr">Summary</caption>
+    <tr><th scope="row">Drawn by</th><td colspan="3">Tomas Gigaglia</td></tr>
+    <tr><th scope="row">Discipline</th><td colspan="3">Mechanical drafting, reverse engineering, 3D CAD</td></tr>
+    <tr><th scope="row">Location</th><td colspan="3">Brisbane, QLD. Open to relocation</td></tr>
+    <tr><th scope="row">Primary CAD</th><td colspan="3">Inventor, Solid Edge, SolidWorks</td></tr>
+    <tr><th scope="row">Contact</th><td colspan="3"><a href="mailto:tomas_giga@hotmail.com">tomas_giga@hotmail.com</a></td></tr>
+    <tr><th scope="row">Scale</th><td class="num">1:1</td><th scope="row">Sheet</th><td class="num">1 of 1</td></tr>
+  </table>
+</header>
+
+<main>
+  <!-- ===================== TRABAJOS =====================
+       EDITAR: para cada proyecto cambiá título, texto y foto.
+       Las fotos van en una carpeta "img" al lado de este archivo:
+       img/project-1.jpg ... img/project-6.jpg (mejor horizontales, 4:3).
+       Mostrá solo trabajos que tengas permiso de publicar.
+       ==================================================== -->
+  <section id="work">
+    <div class="wrap">
+      <h2>Selected work</h2>
+      <p class="intro">Reverse engineering, production drawings and prototype parts from industry roles and freelance projects in Argentina and Australia.</p>
+
+      <div class="grid">
+        <figure class="project">
+          <div class="shot" data-file="Add img/project-1.jpg"><img src="img/project-1.jpg" alt="Part rebuilt in CAD from a 3D scan" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <figcaption>
+            <h3>Part reconstruction from 3D scan</h3>
+            <p>Scanned a worn part, cleaned up the mesh and rebuilt it as a solid model ready to machine or print.</p>
+            <p class="ctx">Freelance, 3D scanning and CAD</p>
+          </figcaption>
+        </figure>
+
+        <figure class="project">
+          <div class="shot" data-file="Add img/project-2.jpg"><img src="img/project-2.jpg" alt="Pump line assembly drawing" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <figcaption>
+            <h3>Pump line design</h3>
+            <p>Assembly and detail drawings for industrial pump lines, plus scan-based reconstruction of existing parts.</p>
+            <p class="ctx">Ruhrpumpen Argentina, 2021–2022</p>
+          </figcaption>
+        </figure>
+
+        <figure class="project">
+          <div class="shot" data-file="Add img/project-3.jpg"><img src="img/project-3.jpg" alt="Production drawing set" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <figcaption>
+            <h3>Production drawings</h3>
+            <p>Detail and assembly drawings for manufactured equipment, kept up to date through design changes.</p>
+            <p class="ctx">Gottert S.A., Argentina, 2023–2025</p>
+          </figcaption>
+        </figure>
+
+        <figure class="project">
+          <div class="shot" data-file="Add img/project-4.jpg"><img src="img/project-4.jpg" alt="Steel fabrication shop drawing" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <figcaption>
+            <h3>Fabrication drawings</h3>
+            <p>Shop drawings for steel fabrication, prepared for use on the workshop floor.</p>
+            <p class="ctx">FCF Fabrication, Sydney, 2025</p>
+          </figcaption>
+        </figure>
+
+        <figure class="project">
+          <div class="shot" data-file="Add img/project-5.jpg"><img src="img/project-5.jpg" alt="Functional 3D-printed part" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <figcaption>
+            <h3>Functional 3D-printed parts</h3>
+            <p>Prototypes and end-use parts in PLA, ASA and ABS, designed for FDM: print orientation, tolerances and strength.</p>
+            <p class="ctx">Own print setup</p>
+          </figcaption>
+        </figure>
+
+        <figure class="project">
+          <div class="shot" data-file="Add img/project-6.jpg"><img src="img/project-6.jpg" alt="Client design model" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <figcaption>
+            <h3>Client designs</h3>
+            <p>More than 50 designs for private clients since 2021, from first sketch to final model.</p>
+            <p class="ctx">Freelance, Argentina and Australia</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <p class="intro">Design and drafting roles in pumps, manufacturing and steel fabrication, alongside freelance work.</p>
+      <ol class="jobs">
+        <li>
+          <span class="when">2021–now</span>
+          <div>
+            <p class="role">Freelance designer and 3D scanning</p>
+            <p class="where">Argentina (from 2021), Australia (from 2025)</p>
+            <p class="what">50+ designs for private clients and 5+ scanning jobs for prototyping and part reconstruction.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2025–2026</span>
+          <div>
+            <p class="role">Handyperson / Maintenance</p>
+            <p class="where">Whitsunday Apartments, Hamilton Island</p>
+            <p class="what">Hands-on repair and maintenance across a resort property.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2025</span>
+          <div>
+            <p class="role">Mechanical Drafter</p>
+            <p class="where">FCF Fabrication, Sydney</p>
+            <p class="what">Fabrication drawings for steel work.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2023–2025</span>
+          <div>
+            <p class="role">Mechanical Drafter</p>
+            <p class="where">Gottert S.A., Argentina</p>
+            <p class="what">Detail and assembly drawings for production.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2021–2022</span>
+          <div>
+            <p class="role">Line Design Draftsperson</p>
+            <p class="where">Ruhrpumpen Argentina</p>
+            <p class="what">Pump line design, 3D scanning and part reconstruction.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">Earlier</span>
+          <div>
+            <p class="role">Electrometalúrgica Chaparro; quality internship at Ford Argentina</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills and training</h2>
+      <div class="cols">
+        <div>
+          <h3>Skills</h3>
+          <dl>
+            <dt>3D CAD</dt>
+            <dd>Inventor, Solid Edge, SolidWorks. Working knowledge of Fusion 360.</dd>
+            <dt>Drafting</dt>
+            <dd>Detail, assembly and fabrication drawings.</dd>
+            <dt>Reverse engineering</dt>
+            <dd>3D scanning and scan-to-CAD part reconstruction.</dd>
+            <dt>Additive manufacturing</dt>
+            <dd>FDM printing in PLA, ASA and ABS. Bambu Studio and Cura.</dd>
+          </dl>
+        </div>
+        <div>
+          <h3>Education and tickets</h3>
+          <ul class="plain">
+            <li>Mechanical Engineering, UTN Argentina <span class="muted">(80% completed)</span></li>
+            <li>Electromechanical Technician</li>
+            <li>White Card, Australia</li>
+            <li>English and Spanish</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p>Looking for drafting, reverse engineering or 3D CAD work. Based in Brisbane and open to relocating for the right role.</p>
+      <a class="btn" href="mailto:tomas_giga@hotmail.com">Email me</a>
+      <span class="email">tomas_giga@hotmail.com</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Tomas Gigaglia</div>
+</footer>
+
+</body>
+</html>
