@@ -4,13 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tomas Gigaglia | Mechanical Drafter &amp; 3D CAD Designer</title>
-<meta name="description" content="Mechanical drafter and 3D CAD designer in Brisbane, QLD. Reverse engineering, 3D scanning, fabrication drawings and prototypes for 3D printing.">
+<meta name="description" content="Mechanical drafter and 3D CAD designer in Brisbane, QLD. Mechanical parts of every size: reverse engineering, 3D scanning, workshop-ready drawings and 3D-printed prototypes.">
 <meta name="theme-color" content="#0A0D0B">
-<meta property="og:title" content="Tomas Gigaglia | Mechanical Drafter & 3D CAD Designer">
-<meta property="og:description" content="Reverse engineering, 3D CAD, fabrication drawings and 3D-printed prototypes. Based in Brisbane, QLD.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tomasgigaglia.github.io/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230A0D0B'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%233FA36B' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%233FA36B'/%3E%3C/svg%3E">
+<meta property="og:title" content="Tomas Gigaglia | Mechanical Drafter & 3D CAD Designer">
+<meta property="og:description" content="Mechanical parts of every size, from worn sample or sketch to accurate model and workshop-ready drawings. Based in Brisbane, QLD.">
+<meta property="og:image" content="https://tomasgigaglia.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tomas Gigaglia, mechanical drafter and 3D CAD designer, with a technical drawing of a flange">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&display=swap" rel="stylesheet">
@@ -18,15 +24,16 @@
 <style>
   :root{
     --bg:#0A0D0B;
-    --panel:#101512;
-    --line:#1C2620;
-    --line2:#2A3830;
+    --panel:#0F1411;
+    --line:#1B241E;
+    --line2:#28352D;
     --text:#E6ECE8;
-    --muted:#94A39A;
-    --green:#2F8F5B;
-    --green-text:#3FA36B;
-    --green-btn:#24754A;
-    --deep:#123B27;
+    --muted:#93A198;
+    --green:#287D4F;
+    --green-text:#379160;
+    --green-btn:#1F6640;
+    --green-btn-hover:#185535;
+    --deep:#0F3221;
     --gutter:clamp(16px,4vw,56px);
     --display:"Big Shoulders Display","Barlow Condensed","Arial Narrow",sans-serif;
   }
@@ -40,47 +47,51 @@
   .wrap{max-width:1180px;margin:0 auto;padding:0 var(--gutter)}
 
   /* Top bar */
-  .top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:22px;padding-bottom:22px}
-  .brand{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:.01em;color:var(--text);text-decoration:none}
+  .top{display:flex;justify-content:flex-end;padding-top:22px;padding-bottom:22px}
   .top nav{display:flex;flex-wrap:wrap;gap:6px 24px;font-size:.9375rem}
   .top nav a{color:var(--muted);text-decoration:none}
   .top nav a:hover{color:var(--text)}
+  @media (max-width:560px){.top{justify-content:flex-start}}
 
   /* Hero */
-  .hero{position:relative;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background-color:var(--bg);background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;background-position:-1px -1px}
-  .hero-grid{display:grid;grid-template-columns:auto minmax(300px,1fr);gap:48px;align-items:center;padding-top:clamp(48px,8vw,104px);padding-bottom:clamp(48px,8vw,104px)}
-  .role{margin:0 0 18px;color:var(--green-text);font-weight:500;font-size:1rem}
-  h1{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(4.5rem,11vw,9.5rem);line-height:.84;letter-spacing:-.005em}
-  .lede{max-width:40ch;margin:28px 0 0;font-size:clamp(1.0625rem,1.6vw,1.25rem);line-height:1.5;color:var(--text)}
-  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+  .hero{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background-color:var(--bg);background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;background-position:-1px -1px}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(320px,1.1fr);gap:48px;align-items:center;padding-top:clamp(48px,7vw,96px);padding-bottom:clamp(48px,7vw,96px)}
+  .role{margin:0 0 16px;color:var(--green-text);font-weight:500;font-size:1rem}
+  h1{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(3.75rem,8.4vw,7.25rem);line-height:.86;letter-spacing:-.005em}
+  .lede{max-width:44ch;margin:26px 0 0;font-size:clamp(1.0625rem,1.5vw,1.1875rem);line-height:1.55}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
   .btn{display:inline-block;padding:13px 22px;border-radius:3px;font-weight:600;font-size:1rem;text-decoration:none;background:var(--green-btn);color:#fff;border:1px solid var(--green-btn)}
-  .btn:hover{background:#1E6440;border-color:#1E6440}
+  .btn:hover{background:var(--green-btn-hover);border-color:var(--green-btn-hover)}
   .btn.ghost{background:transparent;color:var(--text);border-color:var(--line2)}
   .btn.ghost:hover{border-color:var(--muted)}
-  .tools{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:36px 0 0;padding:0}
+  .tools{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:32px 0 0;padding:0}
   .tools li{font-size:.875rem;color:var(--muted);border:1px solid var(--line2);background:var(--bg);padding:5px 11px;border-radius:2px}
 
-  .drawing{margin:0;justify-self:center;width:100%;max-width:560px}
-  .drawing svg{display:block;width:100%;height:auto;overflow:visible}
-  .drawing figcaption{margin-top:12px;font-size:.8125rem;color:var(--muted);text-align:right}
-  .ob{fill:none;stroke:var(--green);stroke-width:2.2}
+  .drawing{margin:0;width:100%;background:rgba(10,13,11,.85);border:1px solid var(--line2);padding:14px 14px 10px}
+  .drawing svg{display:block;width:100%;height:auto}
+  .drawing figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:.8125rem;color:var(--muted)}
+  .ob{fill:none;stroke:var(--green);stroke-width:1.8;stroke-linejoin:round}
   .ob .thin{stroke-width:1}
-  .cl{fill:none;stroke:var(--muted);stroke-width:.9;stroke-dasharray:22 5 3 5;opacity:.75}
-  .dm{fill:none;stroke:var(--muted);stroke-width:1}
-  .dt{fill:var(--muted);font-family:"Instrument Sans",system-ui,sans-serif;font-size:13px;letter-spacing:.02em}
+  .hatch{fill:url(#hatch);stroke:none}
+  .cl{fill:none;stroke:var(--muted);stroke-width:.8;stroke-dasharray:18 4 3 4;opacity:.7}
+  .dm{fill:none;stroke:var(--muted);stroke-width:.9}
+  .dm .cut{stroke:var(--text);stroke-width:2.6}
+  .fill{fill:var(--muted);stroke:none}
+  .dt{fill:var(--muted);font-family:"Instrument Sans",system-ui,sans-serif;font-size:11px;letter-spacing:.02em}
+  .dt .lbl{fill:var(--text);font-weight:600}
+  .dt .sm{font-size:10px}
 
   @media (prefers-reduced-motion:no-preference){
-    .ob [pathLength]{animation:draw 1.5s cubic-bezier(.6,0,.2,1) backwards}
-    .ob .holes [pathLength]{animation-delay:.45s}
-    .dm [pathLength]{animation:draw .8s 1.2s ease-out backwards}
-    .cl,.dt{animation:fade .6s 1.3s ease-out backwards}
+    .ob [pathLength]{animation:draw 1.6s cubic-bezier(.6,0,.2,1) backwards}
+    .ob .late{animation-delay:.4s}
+    .hatch{animation:fade .6s 1.3s ease-out backwards}
+    .dm,.dt,.cl{animation:fade .7s 1.5s ease-out backwards}
   }
   @keyframes draw{from{stroke-dasharray:1;stroke-dashoffset:1}to{stroke-dasharray:1;stroke-dashoffset:0}}
   @keyframes fade{from{opacity:0}}
 
-  @media (max-width:860px){
+  @media (max-width:940px){
     .hero-grid{grid-template-columns:1fr;gap:40px}
-    .drawing{max-width:420px}
   }
 
   /* Sections */
@@ -100,9 +111,9 @@
   .feature{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:40px 0;border-top:1px solid var(--line)}
   .feature.flip .shot{order:2}
   .feature h3{margin:0 0 12px;font-family:var(--display);font-weight:800;font-size:clamp(2rem,3.4vw,2.75rem);line-height:.95}
-  .feature p{margin:0;max-width:46ch}
+  .feature p{margin:0;max-width:48ch}
   .meta{margin:24px 0 0;display:grid;gap:10px;font-size:.9375rem}
-  .meta div{display:grid;grid-template-columns:90px 1fr;gap:12px;padding-top:10px;border-top:1px solid var(--line)}
+  .meta div{display:grid;grid-template-columns:96px 1fr;gap:12px;padding-top:10px;border-top:1px solid var(--line)}
   .meta dt{color:var(--muted)}
   .meta dd{margin:0}
   @media (max-width:760px){.feature{grid-template-columns:1fr}.feature.flip .shot{order:0}}
@@ -111,11 +122,11 @@
   .card{margin:0}
   .card .shot{aspect-ratio:4/3}
   .card h3{margin:16px 0 4px;font-size:1.0625rem;font-weight:600;line-height:1.3}
-  .card p{margin:0;font-size:.9375rem;color:var(--text)}
+  .card p{margin:0;font-size:.9375rem}
   .card .ctx{margin-top:8px;font-size:.8125rem;color:var(--green-text)}
 
   /* Process */
-  .process{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .alt{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:36px 28px}
   .steps li{border-top:2px solid var(--green);padding-top:20px}
   .steps .no{display:block;font-family:var(--display);font-weight:800;font-size:2.5rem;line-height:1;color:var(--green-text)}
@@ -124,13 +135,13 @@
 
   /* Experience */
   .jobs{list-style:none;margin:0;padding:0}
-  .jobs li{display:grid;grid-template-columns:170px minmax(0,1fr) minmax(0,1.2fr);gap:6px 32px;padding:24px 0;border-top:1px solid var(--line)}
+  .jobs li{display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,1.35fr);gap:6px 32px;padding:26px 0;border-top:1px solid var(--line)}
   .jobs li:last-child{border-bottom:1px solid var(--line)}
   .when{color:var(--green-text);font-variant-numeric:tabular-nums;font-weight:500}
   .role-t{margin:0;font-weight:600}
   .where{margin:2px 0 0;color:var(--muted);font-size:.9375rem}
-  .what{margin:0;color:var(--text)}
-  @media (max-width:860px){.jobs li{grid-template-columns:130px minmax(0,1fr)}.what{grid-column:2}}
+  .what{margin:0}
+  @media (max-width:900px){.jobs li{grid-template-columns:120px minmax(0,1fr)}.what{grid-column:2}}
   @media (max-width:560px){.jobs li{grid-template-columns:1fr}.what{grid-column:auto}}
 
   /* Skills */
@@ -161,7 +172,6 @@
 <body>
 
 <header class="top wrap">
-  <a class="brand" href="#top">Tomas Gigaglia</a>
   <nav aria-label="Sections">
     <a href="#work">Work</a>
     <a href="#process">Process</a>
@@ -176,62 +186,141 @@
     <div>
       <p class="role">Mechanical drafter and 3D CAD designer, Brisbane QLD</p>
       <h1>Tomas<br>Gigaglia</h1>
-      <p class="lede">5+ years designing for pumps, manufacturing and steel fabrication. I turn worn parts, sketches and 3D scans into accurate models and drawings, ready to fabricate or print.</p>
+      <p class="lede">I design mechanical parts of every size, from small precision components to large fabricated assemblies. Bring me a sketch, a worn part or a 3D scan and get back an accurate model and workshop-ready drawings, with the fits and tolerances already worked out.</p>
       <div class="actions">
         <a class="btn" href="#work">See my work</a>
         <a class="btn ghost" href="mailto:tomas_giga@hotmail.com">Email me</a>
       </div>
       <ul class="tools" aria-label="Main tools">
-        <li>Inventor</li><li>Solid Edge</li><li>SolidWorks</li><li>3D scanning</li><li>FDM printing</li>
+        <li>Inventor</li><li>Solid Edge</li><li>SolidWorks</li><li>Fusion 360</li><li>3D scanning</li><li>FDM printing</li>
       </ul>
     </div>
 
+    <!-- Plano de muestra: brida para eje Ø40 con chavetero DIN 6885 12x8.
+         Escala del dibujo: 1.25 px = 1 mm. -->
     <figure class="drawing">
-      <svg viewBox="-20 0 580 500" role="img" aria-labelledby="dwg-t">
-        <title id="dwg-t">Technical drawing of a flange with a keyed bore and six bolt holes</title>
+      <svg viewBox="30 84 550 345" role="img" aria-labelledby="dwg-t dwg-d">
+        <title id="dwg-t">Technical drawing of a shaft flange</title>
+        <desc id="dwg-d">Front view and section A-A of a steel flange: outside diameter 160, hub diameter 80, bore 40 H7 with a 12 JS9 keyway, six 11 mm through holes on a 125 pitch circle, 16 thick and 50 long overall.</desc>
         <defs>
-          <marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
-            <path d="M0,1.5 L10,5 L0,8.5 z" style="fill:var(--muted)"/>
+          <marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M0,1.8 L10,5 L0,8.2 z" class="fill"/>
           </marker>
+          <pattern id="hatch" patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="5" style="stroke:var(--green);stroke-width:.9;opacity:.75"/>
+          </pattern>
         </defs>
 
+        <!-- Centre lines -->
         <g class="cl">
-          <line x1="260" y1="40" x2="260" y2="480"/>
-          <line x1="36" y1="260" x2="484" y2="260"/>
-          <circle cx="260" cy="260" r="150"/>
+          <line x1="72" y1="225" x2="308" y2="225"/>
+          <line x1="190" y1="122" x2="190" y2="328"/>
+          <circle cx="190" cy="225" r="78.125"/>
+          <line x1="418" y1="225" x2="504" y2="225"/>
+          <line x1="465" y1="146.875" x2="500" y2="146.875"/>
+          <line x1="465" y1="303.125" x2="500" y2="303.125"/>
         </g>
 
+        <!-- Section A-A: hatched material -->
+        <path class="hatch" d="M430,175 L472.5,175 L472.5,153.75 L492.5,153.75 L492.5,195.875 L430,195.875 Z M472.5,140 L472.5,125 L492.5,125 L492.5,140 Z M430,250 L492.5,250 L492.5,296.25 L472.5,296.25 L472.5,275 L430,275 Z M472.5,310 L492.5,310 L492.5,325 L472.5,325 Z"/>
+
+        <!-- Object lines -->
         <g class="ob">
-          <circle cx="260" cy="260" r="200" pathLength="1"/>
-          <circle class="thin" cx="260" cy="260" r="191" pathLength="1"/>
-          <circle cx="260" cy="260" r="95" pathLength="1"/>
-          <path d="M267,215.55 A45,45 0 1 1 253,215.55 L253,206 L267,206 Z" pathLength="1"/>
-          <g class="holes">
-            <circle cx="260" cy="110" r="16" pathLength="1"/>
-            <circle cx="389.9" cy="185" r="16" pathLength="1"/>
-            <circle cx="389.9" cy="335" r="16" pathLength="1"/>
-            <circle cx="260" cy="410" r="16" pathLength="1"/>
-            <circle cx="130.1" cy="335" r="16" pathLength="1"/>
-            <circle cx="130.1" cy="185" r="16" pathLength="1"/>
-          </g>
+          <circle cx="190" cy="225" r="100" pathLength="1"/>
+          <circle cx="190" cy="225" r="50" pathLength="1"/>
+          <path d="M197.5,201.15 A25,25 0 1 1 182.5,201.15 L182.5,195.875 L197.5,195.875 Z" pathLength="1"/>
+          <circle class="late" cx="257.66" cy="264.06" r="6.875" pathLength="1"/>
+          <circle class="late" cx="190" cy="303.125" r="6.875" pathLength="1"/>
+          <circle class="late" cx="122.34" cy="264.06" r="6.875" pathLength="1"/>
+          <circle class="late" cx="122.34" cy="185.94" r="6.875" pathLength="1"/>
+          <circle class="late" cx="190" cy="146.875" r="6.875" pathLength="1"/>
+          <circle class="late" cx="257.66" cy="185.94" r="6.875" pathLength="1"/>
+          <path d="M430,175 L472.5,175 L472.5,153.75 L492.5,153.75 L492.5,195.875 L430,195.875 Z M472.5,140 L472.5,125 L492.5,125 L492.5,140 Z" pathLength="1"/>
+          <path d="M430,250 L492.5,250 L492.5,296.25 L472.5,296.25 L472.5,275 L430,275 Z M472.5,310 L492.5,310 L492.5,325 L472.5,325 Z" pathLength="1"/>
+          <line class="thin" x1="430" y1="201.15" x2="492.5" y2="201.15" pathLength="1"/>
         </g>
 
+        <!-- Dimensions, leaders, cutting plane -->
         <g class="dm">
-          <line x1="60" y1="250" x2="60" y2="16" pathLength="1"/>
-          <line x1="460" y1="250" x2="460" y2="16" pathLength="1"/>
-          <line x1="60" y1="24" x2="460" y2="24" marker-start="url(#ar)" marker-end="url(#ar)"/>
-          <path d="M401,174 L445,128 L540,128" marker-start="url(#ar)" pathLength="1"/>
-          <path d="M193,193 L122,112 L-10,112" marker-start="url(#ar)" pathLength="1"/>
-          <path d="M154,366 L100,430 L-10,430" marker-start="url(#ar)" pathLength="1"/>
+          <line class="cut" x1="190" y1="106" x2="190" y2="120"/>
+          <line class="cut" x1="190" y1="330" x2="190" y2="344"/>
+          <line x1="190" y1="108" x2="168" y2="108" marker-end="url(#ar)"/>
+          <line x1="190" y1="342" x2="168" y2="342" marker-end="url(#ar)"/>
+
+          <path d="M182.5,198 L150,122 L60,122" marker-start="url(#ar)"/>
+          <path d="M262.5,181.1 L300,132 L422,132" marker-start="url(#ar)"/>
+          <path d="M207.7,242.7 L300,314 L410,314" marker-start="url(#ar)"/>
+          <path d="M150.9,292.7 L118,348 L44,348" marker-start="url(#ar)"/>
+
+          <rect x="304" y="136" width="88" height="16"/>
+          <line x1="322" y1="136" x2="322" y2="152"/><line x1="360" y1="136" x2="360" y2="152"/><line x1="376" y1="136" x2="376" y2="152"/>
+          <circle cx="313" cy="144" r="3.6"/><line x1="307" y1="144" x2="319" y2="144"/><line x1="313" y1="138" x2="313" y2="150"/>
+
+          <rect x="304" y="318" width="74" height="16"/>
+          <line x1="322" y1="318" x2="322" y2="334"/><line x1="362" y1="318" x2="362" y2="334"/>
+          <line x1="313" y1="321" x2="313" y2="331"/><line x1="308" y1="331" x2="318" y2="331"/>
+          <line x1="341" y1="341" x2="341" y2="348"/>
+          <rect x="333" y="348" width="16" height="16"/>
+
+          <rect x="46" y="332" width="38" height="14"/>
+
+          <line x1="472.5" y1="121" x2="472.5" y2="100"/>
+          <line x1="492.5" y1="121" x2="492.5" y2="100"/>
+          <line x1="472.5" y1="104" x2="492.5" y2="104" marker-start="url(#ar)" marker-end="url(#ar)"/>
+
+          <line x1="430" y1="279" x2="430" y2="360"/>
+          <line x1="492.5" y1="329" x2="492.5" y2="360"/>
+          <line x1="430" y1="356" x2="492.5" y2="356" marker-start="url(#ar)" marker-end="url(#ar)"/>
+
+          <line x1="426" y1="175" x2="378" y2="175"/>
+          <line x1="426" y1="275" x2="378" y2="275"/>
+          <line x1="382" y1="175" x2="382" y2="275" marker-start="url(#ar)" marker-end="url(#ar)"/>
+
+          <line x1="426" y1="195.875" x2="402" y2="195.875"/>
+          <line x1="426" y1="250" x2="402" y2="250"/>
+          <line x1="406" y1="195.875" x2="406" y2="250" marker-start="url(#ar)" marker-end="url(#ar)"/>
+
+          <line x1="496" y1="125" x2="562" y2="125"/>
+          <line x1="496" y1="325" x2="562" y2="325"/>
+          <line x1="558" y1="125" x2="558" y2="325" marker-start="url(#ar)" marker-end="url(#ar)"/>
+
+          <line x1="501" y1="270" x2="512" y2="270"/>
+          <rect x="512" y="262" width="16" height="16"/>
+
+          <path d="M437,242 L442,250 L449,236 L470,236"/>
         </g>
+        <path class="fill" d="M335,334 L347,334 L341,341 Z"/>
+        <path class="fill" d="M492.5,264 L492.5,276 L501,270 Z"/>
+
         <g class="dt">
-          <text x="260" y="14" text-anchor="middle">Ø400</text>
-          <text x="448" y="121">6X Ø16 EQ SP</text>
-          <text x="-10" y="105">Ø190 HUB</text>
-          <text x="-10" y="423">Ø300 PCD</text>
+          <text class="lbl" x="158" y="112">A</text>
+          <text class="lbl" x="158" y="346">A</text>
+          <text x="62" y="117">KEYWAY 12 JS9</text>
+          <text class="sm" x="62" y="134">DIN 6885-1</text>
+          <text x="304" y="127">6X Ø11 THRU EQ SP</text>
+          <text x="341" y="148" text-anchor="middle">Ø0.3</text>
+          <text x="368" y="148" text-anchor="middle">A</text>
+          <text x="384" y="148" text-anchor="middle">B</text>
+          <text x="304" y="309">Ø40 H7 (+0.025/0)</text>
+          <text x="342" y="330" text-anchor="middle">Ø0.03</text>
+          <text x="370" y="330" text-anchor="middle">A</text>
+          <text x="341" y="360" text-anchor="middle">B</text>
+          <text x="50" y="343">Ø125</text>
+          <text x="89" y="343">PCD</text>
+          <text x="482.5" y="97" text-anchor="middle">16</text>
+          <text x="461.25" y="351" text-anchor="middle">50</text>
+          <text transform="translate(377 225) rotate(-90)" text-anchor="middle">Ø80</text>
+          <text transform="translate(400 223) rotate(-90)" text-anchor="middle">43.3 +0.2/0</text>
+          <text transform="translate(553 225) rotate(-90)" text-anchor="middle">Ø160</text>
+          <text x="520" y="274" text-anchor="middle">A</text>
+          <text class="sm" x="450" y="233">Ra 1.6</text>
+          <text class="lbl" x="461.25" y="384" text-anchor="middle">SECTION A-A</text>
+          <text class="sm" x="44" y="398">MATERIAL: AISI 1045 STEEL</text>
+          <text class="sm" x="44" y="411">GENERAL TOLERANCES: ISO 2768-m</text>
+          <text class="sm" x="44" y="424">DIMENSIONS IN mm</text>
         </g>
       </svg>
-      <figcaption>Flange, front view. A sample of the parts I model and draw.</figcaption>
+      <figcaption><span>Shaft flange, front view and section A-A</span><span>Sample drawing</span></figcaption>
     </figure>
   </div>
 </div>
@@ -249,17 +338,18 @@
     <div class="wrap">
       <div class="head">
         <h2>Selected work</h2>
-        <p>Reverse engineering, production drawings and prototype parts from industry roles and freelance projects in Argentina and Australia.</p>
+        <p>Reverse engineering, production drawings and functional prototypes, from single replacement parts to complete assemblies.</p>
       </div>
 
       <article class="feature">
         <div class="shot" data-file="Add img/project-1.jpg"><img src="img/project-1.jpg" alt="Part rebuilt in CAD from a 3D scan" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
         <div>
           <h3>Part reconstruction from 3D scan</h3>
-          <p>Scanned a worn part, cleaned up the mesh and rebuilt it as a solid model ready to machine or print.</p>
+          <p>When a part is worn, broken or no longer made, I scan it, clean up the mesh and rebuild it as a parametric model, designing out the wear so the new part fits the way the original was meant to.</p>
           <dl class="meta">
-            <div><dt>Context</dt><dd>Freelance</dd></div>
-            <div><dt>Work</dt><dd>3D scanning, mesh clean-up, parametric CAD</dd></div>
+            <div><dt>Jobs</dt><dd>5+ scanning jobs for prototyping and part reconstruction</dd></div>
+            <div><dt>Work</dt><dd>3D scanning, mesh clean-up, parametric CAD, drawings</dd></div>
+            <div><dt>Output</dt><dd>A model and drawings ready to machine or print</dd></div>
           </dl>
         </div>
       </article>
@@ -268,10 +358,11 @@
         <div class="shot" data-file="Add img/project-2.jpg"><img src="img/project-2.jpg" alt="Functional 3D-printed part" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
         <div>
           <h3>Functional 3D-printed parts</h3>
-          <p>Prototypes and end-use parts in PLA, ASA and ABS, designed for FDM: print orientation, tolerances and strength.</p>
+          <p>Prototypes and end-use parts designed for FDM from the start: print orientation, wall thickness and clearances set so parts come off the printer ready to fit.</p>
           <dl class="meta">
-            <div><dt>Context</dt><dd>Own print setup</dd></div>
-            <div><dt>Work</dt><dd>Design for additive manufacturing, prototyping</dd></div>
+            <div><dt>Materials</dt><dd>PLA for prototypes, ASA for outdoor and heat-exposed parts, ABS for tough parts</dd></div>
+            <div><dt>Process</dt><dd>Direct-drive FDM, 0.4 and 0.6 mm nozzles</dd></div>
+            <div><dt>Context</dt><dd>Own print setup, for clients and my own projects</dd></div>
           </dl>
         </div>
       </article>
@@ -297,7 +388,7 @@
           <div class="shot" data-file="Add img/project-5.jpg"><img src="img/project-5.jpg" alt="Steel fabrication shop drawing" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
           <figcaption>
             <h3>Fabrication drawings</h3>
-            <p>Shop drawings for steel fabrication, prepared for use on the workshop floor.</p>
+            <p>Shop drawings for steel fabrication, laid out so the workshop can cut, weld and assemble straight from the sheet.</p>
             <p class="ctx">FCF Fabrication, Sydney, 2025</p>
           </figcaption>
         </figure>
@@ -313,7 +404,7 @@
     </div>
   </section>
 
-  <section id="process" class="process">
+  <section id="process" class="alt">
     <div class="wrap">
       <div class="head">
         <h2>From worn part to new part</h2>
@@ -321,9 +412,9 @@
       </div>
       <ol class="steps">
         <li><span class="no">01</span><h3>Scan</h3><p>Capture the existing part with a 3D scanner, or measure it by hand.</p></li>
-        <li><span class="no">02</span><h3>Model</h3><p>Rebuild it as a clean parametric solid in Inventor, Solid Edge or SolidWorks.</p></li>
-        <li><span class="no">03</span><h3>Draw</h3><p>Produce detail and assembly drawings with the tolerances the workshop needs.</p></li>
-        <li><span class="no">04</span><h3>Make</h3><p>Print a prototype in PLA, ASA or ABS, or hand it over for machining or fabrication.</p></li>
+        <li><span class="no">02</span><h3>Model</h3><p>Rebuild it as a clean parametric solid in Inventor, Solid Edge, SolidWorks or Fusion 360.</p></li>
+        <li><span class="no">03</span><h3>Draw</h3><p>Detail and assembly drawings with the fits, tolerances and surface finishes the workshop needs.</p></li>
+        <li><span class="no">04</span><h3>Make</h3><p>Print a prototype in PLA, ASA or ABS to check fit, then hand over for machining or fabrication.</p></li>
       </ol>
     </div>
   </section>
@@ -332,55 +423,55 @@
     <div class="wrap">
       <div class="head">
         <h2>Experience</h2>
-        <p>Design and drafting roles in pumps, manufacturing and steel fabrication, alongside freelance work.</p>
+        <p>Design and drafting for industrial pumps, manufacturing and steel fabrication, alongside freelance work.</p>
       </div>
       <ol class="jobs">
         <li>
           <span class="when">2021–now</span>
           <div><p class="role-t">Freelance designer and 3D scanning</p><p class="where">Argentina and Australia</p></div>
-          <p class="what">50+ designs for private clients and 5+ scanning jobs for prototyping and part reconstruction.</p>
+          <p class="what">50+ designs for private clients and 5+ 3D scanning jobs to prototype new parts and rebuild existing ones. I work directly with each client, from first brief to final model and drawings.</p>
         </li>
         <li>
           <span class="when">2025–2026</span>
           <div><p class="role-t">Handyperson / Maintenance</p><p class="where">Whitsunday Apartments, Hamilton Island</p></div>
-          <p class="what">Hands-on repair and maintenance across a resort property.</p>
+          <p class="what">Day-to-day repairs and maintenance across a resort apartment complex. Hands-on time with the tools that shapes how I design parts to be made, installed and serviced.</p>
         </li>
         <li>
           <span class="when">2025</span>
           <div><p class="role-t">Mechanical Drafter</p><p class="where">FCF Fabrication, Sydney</p></div>
-          <p class="what">Fabrication drawings for steel work.</p>
+          <p class="what">Shop and fabrication drawings for steel work, prepared for the workshop floor.</p>
         </li>
         <li>
           <span class="when">2023–2025</span>
           <div><p class="role-t">Mechanical Drafter</p><p class="where">Gottert S.A., Argentina</p></div>
-          <p class="what">Detail and assembly drawings for production.</p>
+          <p class="what">Detail and assembly drawings for production, kept accurate through engineering changes and revisions over two years.</p>
         </li>
         <li>
           <span class="when">2021–2022</span>
           <div><p class="role-t">Line Design Draftsperson</p><p class="where">Ruhrpumpen Argentina</p></div>
-          <p class="what">Pump line design, 3D scanning and part reconstruction.</p>
+          <p class="what">Design drawings for the industrial pump line, plus 3D scanning and reconstruction of existing components in CAD.</p>
         </li>
         <li>
           <span class="when">Earlier</span>
           <div><p class="role-t">Electrometalúrgica Chaparro</p><p class="where">Plus a quality internship at Ford Argentina</p></div>
-          <p class="what"></p>
+          <p class="what">First industry experience in metalworking and automotive quality.</p>
         </li>
       </ol>
     </div>
   </section>
 
-  <section id="skills" class="process">
+  <section id="skills" class="alt">
     <div class="wrap">
       <div class="head">
         <h2>Skills and training</h2>
-        <p>Tools I use every day, and the technical background behind them.</p>
+        <p>The tools I use every day, and the technical background behind them.</p>
       </div>
       <div class="cols">
         <div>
           <h3>Skills</h3>
           <dl class="skills">
-            <div><dt>3D CAD</dt><dd>Inventor, Solid Edge, SolidWorks. Working knowledge of Fusion 360.</dd></div>
-            <div><dt>Drafting</dt><dd>Detail, assembly and fabrication drawings.</dd></div>
+            <div><dt>3D CAD</dt><dd>Inventor, Solid Edge, SolidWorks and Fusion 360.</dd></div>
+            <div><dt>Drafting</dt><dd>Detail, assembly and fabrication drawings with fits, tolerances and surface finishes.</dd></div>
             <div><dt>Reverse engineering</dt><dd>3D scanning and scan-to-CAD part reconstruction.</dd></div>
             <div><dt>Additive manufacturing</dt><dd>FDM printing in PLA, ASA and ABS. Bambu Studio and Cura.</dd></div>
           </dl>
@@ -401,7 +492,7 @@
   <section id="contact" class="contact">
     <div class="wrap">
       <h2>Need a part modelled, drawn or rebuilt?</h2>
-      <p>Open to full-time drafting and 3D CAD roles in Brisbane or further afield, and to freelance jobs.</p>
+      <p>Open to full-time drafting and 3D CAD roles in Brisbane or further afield, and to freelance jobs of any size.</p>
       <a class="btn" href="mailto:tomas_giga@hotmail.com">Email me</a>
       <span class="mail">tomas_giga@hotmail.com</span>
     </div>
